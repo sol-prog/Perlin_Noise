@@ -33,11 +33,10 @@ PerlinNoise::PerlinNoise() {
 
 // Generate a new permutation vector based on the value of seed
 PerlinNoise::PerlinNoise(unsigned int seed) {
-	int indx = 0;
 	p.resize(256);
 
 	// Fill p with values from 0 to 255
-	std::generate(p.begin(), p.end(), [&indx] {return indx++;});
+	std::iota(p.begin(), p.end(), 0);
 
 	// Initialize a random engine with seed
 	std::default_random_engine engine(seed);
